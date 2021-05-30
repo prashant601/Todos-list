@@ -21,6 +21,9 @@ function App() {
   }
 
 
+  
+
+
   const onDelete = (todo) => {
     console.log("I am ondelete of todo", todo);
     // Deleting this way in react does not work
@@ -57,6 +60,31 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos])
 
+
+
+  let search = document.getElementById('searchTxt');
+  if(search){
+    search.addEventListener("input", function(){
+
+    let inputVal = search.value.toLowerCase();
+    // console.log('Input event fired!', inputVal);
+    let todoItem = document.getElementsByClassName('todoItem');
+    Array.from(todoItem).forEach(function(element){
+        let cardTxt = element.getElementsByTagName("p")[0].innerText;
+        if(cardTxt.includes(inputVal)){
+            element.style.display = "block";
+        }
+        else{
+            element.style.display = "none";
+        }
+        // console.log(cardTxt);
+    })
+})
+}
+
+
+
+
   return ( 
     <> 
     <Router>
@@ -79,5 +107,7 @@ function App() {
     </>
   );
 }
+
+
 
 export default App;
