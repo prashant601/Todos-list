@@ -8,7 +8,7 @@ export const About = () => {
     return (
         <div class=" py-8 fst-italic fw-bold bg-info" style={myStyle}>
              
-            Creater : Prashant singh
+            Creator : Prashant singh
 
              <div class=" py-2">
                 This is used for making your list of works to do or some personal notes.
